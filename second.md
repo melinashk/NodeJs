@@ -115,3 +115,38 @@ In this case, the Map object has one key-value pair, where the key is an object 
 So, this Map object maps the object { name: 'Max' } to an array with one object { date: 'yesterdsay, price :10' }.
 
 The notation => in the output is used to indicate the mapping between the key and the value in the Map object.
+
+
+```js
+console.log(personData.get(person1));
+```
+the above line access the value of the key person1 in this case we used object as a key
+
+
+### we can dispaly all entries of map using 3 different techniques
+
+first one is for of loop
+```js
+
+for (const entry of personData.entries()){
+    console.log(entry)
+}
+
+output:
+// [ { name: 'Max' }, [ { date: 'yesterdsay, price :10' } ] ]
+
+```
+
+lets say we are only interested in keys only
+```js
+for(const key of personData.keys()){
+    console.log(key);
+output
+//{ name: 'Max' }
+}
+```
+
+## Maps vs Objects
+
+<img src="/assets/mapsabjectssets.png">
+
