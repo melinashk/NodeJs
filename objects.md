@@ -81,3 +81,39 @@ person = {
 }
 // js will not take this as keyname instead it will seatch a variable with that name
 ```
+
+### spread syntax(...)
+
+
+ in the below example we use a spread operator to copy the key and values from person1 to person2 but on the below example the array which is nested in the hobbies is not copied.
+ ```js
+
+ person1 ={
+  name : 'Eb',
+  age :30,
+  hobbies: ['cooking','guitar']
+}
+
+person2 = {...person1, age :29}
+person1.hobbies.pop()
+console.log(person1)
+
+console.log(person2)
+
+ ```
+
+  to make a copy of the array we need another spread operator assigned to array to copy.
+```js
+person1 ={
+  name : 'Eb',
+  age :30,
+  hobbies: ['cooking','guitar']
+}
+
+person2 = {...person1, age :29, hobbies: [...person1.hobbies]}
+person1.hobbies.pop()
+console.log(person1)
+
+console.log(person2)
+
+```
