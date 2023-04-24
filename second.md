@@ -148,5 +148,5 @@ output
 
 ## Maps vs Objects
 
-<img src="/assets/mapsabjectssets.png">
+<img src="/assets/mapsobjectssets.png">
 
