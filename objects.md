@@ -100,6 +100,9 @@ console.log(person1)
 
 console.log(person2)
 
+//output:> Object { name: "Eb", age: 30, hobbies: Array ["cooking"] }
+// > Object { name: "Eb", age: 29, hobbies: Array ["cooking"] }
+
  ```
 
   to make a copy of the array we need another spread operator assigned to array to copy.
@@ -115,5 +118,10 @@ person1.hobbies.pop()
 console.log(person1)
 
 console.log(person2)
+
+// output
+// > Object { name: "Eb", age: 30, hobbies: Array ["cooking"] }
+// > Object { name: "Eb", age: 29, hobbies: Array ["cooking", "guitar"] }
+
 
 ```
