@@ -69,5 +69,30 @@ const child = {
 };
 console.log(child.method());
 
-````
+```
 
+### setting and getting protototype
+
+to display the protoypes of a object
+```js
+Object.getPrototypeOf(objectname)
+```
+
+to set the prototype of an object
+```js
+Object.setPrototypeOf(x,y)
+// where x = object 
+// y = prototype
+```
+```js
+const obj = {};
+const parent = { foo: 'bar' };
+
+console.log(obj.foo);
+// Expected output: undefined
+
+Object.setPrototypeOf(obj, parent);
+
+console.log(obj.foo);
+// Expected output: "bar"
+```
