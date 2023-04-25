@@ -1,5 +1,20 @@
 ### class and oop
 
+
+### built in class
+
+```js
+const obj = new Object();
+// we can create a new empty object like this
+// it is same as
+
+const obj2 ={}
+//similarly
+new Array()
+
+```
+
+
 ## creating a class
 
 ```js
