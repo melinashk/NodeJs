@@ -5,4 +5,4 @@
   
   return fn(n-1) + fn(n-2)
   ```
-  <img src="/assets/recursion.gif>
+  <img src="/assets/recursion.gif">
