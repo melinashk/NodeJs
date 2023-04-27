@@ -1,0 +1,47 @@
+first lets understand java script is single threaded
+code executes step by step in order
+
+
+### understanding Async code execution
+
+ Web Workers was introduced in order to perform multi threading like behaviour in java script
+
+ web Workers canot do DOM manipulation tho
+
+ lets take a problem where we want to calculate total sum of numbers from one to 1 billion it takes a while right
+
+ and if that continues then we canot perform other problems nor any other problems will work
+
+ what is happening in this case is the main thread is locked up right now
+
+ this is when webworkers comes in.
+
+ We can create web workers to offload cpu extensive task so that main thread wont get locked up and the web worker will handel the problem for us in parallel
+
+
+### lets understand how the js engine executes the code
+
+When you run a JavaScript program, the code is first parsed by the JavaScript engine. The parser breaks down the code into smaller pieces called tokens, which are then organized into a tree-like structure called the Abstract Syntax Tree (AST).
+
+Once the AST is created, the engine begins executing the code. It does this by traversing the tree, starting at the top, and executing each node in turn. Each node represents a different part of the code, such as a variable declaration, function call, or loop.
+
+During execution, the engine also creates a set of data structures called execution contexts. These contexts keep track of the variables and functions used by the code, as well as the current state of the program. Each time a new function is called, a new execution context is created and added to the stack.
+
+The engine uses a process called Just-In-Time (JIT) compilation to optimize the code as it executes. This involves analyzing the code as it runs and optimizing frequently executed code paths. This can greatly improve the performance of the program.
+
+Once the code has been fully executed, any remaining execution contexts are popped off the stack, and the program terminates.
+
+
+
+### Event Loop, Queue and Async Code
+
+<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Kn5tSJEm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gid1.6.gif">
+
+<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--fqt0UJmH--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif2.1.gif">
+
+
+<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--qxI9YF9R--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif3.1.gif">
+
+<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--OIG-_8dF--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif4.gif">
+
+<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--uJB5zTD7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif5.gif">
