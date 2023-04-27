@@ -42,18 +42,11 @@ because the call stack is not empty
 ### understanding Async code execution
 
  Web Workers was introduced in order to perform multi threading like behaviour in java script
-
- web Workers canot do DOM manipulation tho
-
- lets take a problem where we want to calculate total sum of numbers from one to 1 billion it takes a while right
-
- and if that continues then we canot perform other problems nor any other problems will work
-
- what is happening in this case is the main thread is locked up right now
-
- this is when webworkers comes in.
-
- We can create web workers to offload cpu extensive task so that main thread wont get locked up and the web worker will handel the problem for us in parallel
+web Workers canot do DOM manipulation tho
+lets take a problem where we want to calculate total sum of numbers from one to 1 billion it takes a while right
+and if that continues then we canot perform other problems nor any other problems will work
+what is happening in this case is the main thread is locked up right nowthis is when webworkers comes in.
+We can create web workers to offload cpu extensive task so that main thread wont get locked up and the web worker will handel the problem for us in parallel
 
 
 ### lets understand how the js engine executes the code
@@ -67,3 +60,48 @@ During execution, the engine also creates a set of data structures called execut
 The engine uses a process called Just-In-Time (JIT) compilation to optimize the code as it executes. This involves analyzing the code as it runs and optimizing frequently executed code paths. This can greatly improve the performance of the program.
 
 Once the code has been fully executed, any remaining execution contexts are popped off the stack, and the program terminates.
+
+## understanding the pyramid of doom
+
+```js
+
+function pyramidOfDoom() {
+  setTimeout(() => {
+    console.log(1)
+    setTimeout(() => {
+      console.log(2)
+      setTimeout(() => {
+        console.log(3)
+      }, 500)
+    }, 2000)
+  }, 1000)
+}
+pyramidOfDoom()
+```
+
+here when the function gets called the first function inside the pyramid of doom gets to the browser API
+and with the timeout it gets pushed to the callback queue
+the callback queue then loooks something like this after the first run 
+
+##### not exactly but something like this for a understanding
+```js
+    console.log(1)
+    setTimeout(() => {
+      console.log(2)
+      setTimeout(() => {
+        console.log(3)
+      }, 500)
+    }, 2000)
+  }, 1000)
+}
+```
+then it checks if the call stack is empty or not. if empty the console.log gets printed and other gets into the Browser API
+and the process repeats.
+
+The output will be then
+
+output:
+1
+2
+3
+
