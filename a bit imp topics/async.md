@@ -1,5 +1,42 @@
-first lets understand java script is single threaded
-code executes step by step in order
+### Event Loop, Queue and Async Code
+
+<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Kn5tSJEm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gid1.6.gif">
+
+<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--fqt0UJmH--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif2.1.gif">
+
+
+<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--qxI9YF9R--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif3.1.gif">
+
+<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--OIG-_8dF--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif4.gif">
+
+<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--uJB5zTD7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif5.gif">
+
+
+
+### where can the problem occur in the code
+
+```js
+
+fucntion trackUserHandler(){
+    console.log('clcikjed')
+}
+
+button.addEventListner('click', trackUserHandler);
+
+let result = 0;
+
+for (let i = 0; i 100000000; i++){
+    result +=i;
+}
+console.log(result);
+```
+
+in the code above the addEventLsitener gets passed to the browser API to get handled and the sum is running in the stack lets say on main therad.
+
+the sum takes some time to process and we cant click the async code that is handeled by the browser
+because the call stack is not empty
+
+##### this is when the single threading gets a problem
 
 
 ### understanding Async code execution
@@ -30,18 +67,3 @@ During execution, the engine also creates a set of data structures called execut
 The engine uses a process called Just-In-Time (JIT) compilation to optimize the code as it executes. This involves analyzing the code as it runs and optimizing frequently executed code paths. This can greatly improve the performance of the program.
 
 Once the code has been fully executed, any remaining execution contexts are popped off the stack, and the program terminates.
-
-
-
-### Event Loop, Queue and Async Code
-
-<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Kn5tSJEm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gid1.6.gif">
-
-<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--fqt0UJmH--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif2.1.gif">
-
-
-<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--qxI9YF9R--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif3.1.gif">
-
-<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--OIG-_8dF--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif4.gif">
-
-<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--uJB5zTD7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif5.gif">
