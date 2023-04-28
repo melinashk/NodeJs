@@ -69,3 +69,8 @@ When testFunction is called, it is added to the call stack and sum is called nex
 After sum completes, testFunction will continue executing and call setTimer(1000) and setTimer(2000). Since setTimer uses setTimeout to delay the execution of the callback function, it doesn't block the execution of the code. Instead, it schedules the callback to be executed after the specified duration, and the rest of the code continues executing.
 
 After testFunction completes, it is removed from the call stack and product is called. Since product is a regular synchronous function, it will be executed immediately, and the message "this is displayed by using product" will be printed to the console.
+
+#### things to note
+
+await cannot be used outside the async function 
+so we have to wrap the code around the async function to execute it
