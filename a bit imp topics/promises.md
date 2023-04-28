@@ -79,3 +79,28 @@ setTimer(3000).then(() =>{
 })
 ```
 if you are reading this file you already know and understand basics so no need to describle it all :).
+
+
+we can throw an error like this if the promise didnot resolved. then takes 2 parameters first one when the promise resolve and second whent the promise reject
+```js
+setTimer(1000).then(() =>{
+  console.log('hello world1')
+}, () => {
+  console.log('error caught')
+})
+```
+
+```js
+somePromiseCreatingCode()
+    .then(firstResult => {
+        return 'done with first promise';
+    })
+    .catch(err => {
+        // would handle any errors thrown before
+        // implicitly returns a new promise - just like then()
+    })
+    .finally(() => {
+        // the promise is settled now - finally() will NOT return a new promise!
+        // you can do final cleanup work here
+    });
+```
