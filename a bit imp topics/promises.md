@@ -48,3 +48,34 @@ const myPromise = new Promise(function(resolve) {
   resolve([{ name: "Chris" }]);
 });
 ```
+
+We can use.then to invoke when the promise is resolve or .catch when the promise reject
+here is an example of a code that checks if if duration matches a crietria if not throws reject
+
+```js
+
+const setTimer = (duration) => {
+  const promise = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+
+      if (duration !== 1000){
+      resolve();
+      }else{
+        reject();
+      }
+
+    },duration)
+  });
+  return promise;
+}
+
+setTimer(1000).then(() =>{
+  console.log('hello world')
+}).catch(() =>{
+  console.log('rejected')
+})
+setTimer(3000).then(() =>{
+  console.log('hello world1')
+})
+```
+if you are reading this file you already know and understand basics so no need to describle it all :).
