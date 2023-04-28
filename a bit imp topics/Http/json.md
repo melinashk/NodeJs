@@ -51,4 +51,4 @@ const jsonText = JSON.stringify('Hi there! I use single quotes in raw JS'); // "
 const jsonArray = JSON.stringify([1, 2, 3]); // "[1,2,3]"
 const jsonBoolean = JSON.stringify(true); // "true"
 ```
-...gi
+...git
