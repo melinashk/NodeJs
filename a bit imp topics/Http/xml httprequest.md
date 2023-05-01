@@ -86,3 +86,35 @@ async function createPost(title,content){
     sendHttpRequest('POST',"https://jsonplaceholder.typicode.com/posts",post)
 }
 ```
+handling error in the http request
+
+the error will not kick in for the server side error but only for the client side 
+to use the error we can use a mthod called
+```js
+         xhr.onerror = function(){
+            console.log(xhr.response)
+            console.log(xhr.status)
+         }
+        
+```
+the status will display the status code for the error
+404 server not found
+
+other way we can handel the error is
+```js
+        xhr.onload = function(){
+
+            if(xhr.status >=200 && xhr.status< 300){
+                resolve(xhr.response);
+
+            }else{
+                reject(new Error('something went wrong'));
+            }
+
+
+         }
+         xhr.onerror = function(){
+            reject(new Error('!failed to send request'));
+         }
+```
+this will stay on onload and only go to the other error when other types of error like no internet conncection or things like that.
