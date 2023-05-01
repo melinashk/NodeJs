@@ -15,3 +15,11 @@ xhr.send();
 xhr.responseType = 'json';
 ```
 
+after sending the request we want to listen for the server's response
+
+XML doesnot always support addEventListener() meaning older browser doesnot support that
+```js
+xhr.onload = function(){
+    console.log(xhr.response)
+}
+

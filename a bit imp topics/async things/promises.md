@@ -104,3 +104,23 @@ somePromiseCreatingCode()
         // you can do final cleanup work here
     });
 ```
+
+
+
+In JavaScript Promises, the resolve() method is used to indicate that a Promise has been fulfilled and pass a value (or result) to the Promise's .then() method.
+
+When you call resolve(value) on a Promise object, where value is any valid JavaScript value, the Promise's state property is changed from pending to fulfilled and the Promise's result property is set to the value passed as the argument to resolve().
+
+Any .then() method chained to the Promise will then be executed with the result value passed as its argument. Here's an example:
+```js
+const myPromise = new Promise(function(resolve, reject) {
+  // do some asynchronous operation that eventually resolves
+  const result = 42;
+  resolve(result);
+});
+
+myPromise.then(function(result) {
+  console.log(`The result is: ${result}`);
+});
+
+```
