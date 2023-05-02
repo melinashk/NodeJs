@@ -1,4 +1,11 @@
 ## IndexedDb
+1. Open a database.
+2. Create an object store in the database.
+3. Start a transaction and make a request to do some database       operation,like adding or retrieving data.
+
+4. Wait for the operation to complete by listening to the right kind of DOM event.
+
+5. Do something with the results (which can be found on the request object).
 
 indexedDB is a client-side storage mechanism that allows web applications to store and retrieve data in the browser. It is supported by most modern web browsers, including Chrome, Firefox, and Edge.
 
