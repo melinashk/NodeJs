@@ -8,4 +8,4 @@ npm install --save-dev packagename
 
 ### production
 
-<img src = "/assets/workflow.png>
+<img src = "/assets/workflow.png">
