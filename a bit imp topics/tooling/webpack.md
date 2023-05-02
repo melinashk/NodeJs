@@ -36,3 +36,21 @@ in webpack we use the import  in a bit bit different way
 path = require('path');
 ```
 and when we use webpack we need to remove .js extension import statement form the files
+
+
+#### multiple entry point
+```js
+//nstead of
+
+entry: './src/app.js'
+//use
+
+entry: {
+    welcome: './src/welcome-page/welcome.js',
+    about: './src/about-page/about.js',
+    // etc.
+}
+```
+
+Now Webpack will look up all these entry points and create one bundle per entry point - you can then link to these bundles in your respective HTML files.
+
