@@ -1,7 +1,7 @@
 1.  Create a class in which you specify your web component functionality, using the class syntax.
 2.  Register your new custom element using the <b>CustomElementRegistry.define()</b> method, passing it the element name to be defined, the class or function in which its functionality is specified, and optionally, what element it inherits from.
 3.  If required, attach a shadow DOM to the custom element using Element.attachShadow() method. Add child elements, event listeners, etc., to the shadow DOM using regular DOM methods.
-4.  If required, define an HTML template using '<template>' and '<slot>'. Again use regular DOM methods to clone the template and attach it to your shadow DOM.
+4.  If required, define an HTML template. Again use regular DOM methods to clone the template and attach it to your shadow DOM.
 5.  Use your custom element wherever you like on your page, just like you would any regular HTML element.
 
 
