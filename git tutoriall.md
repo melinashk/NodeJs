@@ -76,3 +76,17 @@ using git log we can see all the checkpoints we have made
 git checkout hashoftheversion
 ```
 this will take us to the version of our code and we can mode back and forth
+
+to fetch from the remote repo to local repo we use the git fetch command
+```bash
+git fetch
+```
+and to check the changes of local and remote repo we use diff
+```bash
+git diff
+```
+if we want to merge the fetched data from the remote repo we use the merge
+```git
+git merge
+```
+
