@@ -72,3 +72,82 @@ now we add a middleware to parse data that comes to our listening port
 ```js
 app.use(express.json())
 ```
+after this now let's handel the auth function for the register and login
+we need to import the user from models 
+and then create a async register function and check conditions
+```js
+exports.register = async (req,res,next) =>{
+    const {username, password} = req.body;
+    if (password.length < 6){
+        return res.status(400).json({
+            message: "Password less than 6 characters"
+        })
+    }
+    try{
+        await User.create({
+            username,
+            password,
+        }).then(user => res.status(200).json({
+            message: "user created successfully",
+            user,
+        }))
+
+    }catch (err){
+        res.status(401).json({
+            message: "user not successfully created",
+            error:error.message,
+        })
+
+    }
+
+}
+```
+the above function will take out the username and password from the request and checks the condition and return response
+
+similarly for login 
+```js
+exports.login= async (req,res,next) => {
+    const {username, password} = req.body
+    if(!username || !password){
+        return res.status(400).json({
+            message: "username and password not found"
+        })
+    }
+    try{
+    const user = await User.findOne({username, password})
+    if(!user){
+        res.status(401).json({
+            message: "login not successful",
+            error: "user not founnd",
+        })
+    }else{
+        res.status(200).json({
+            message: "login successgul",
+            user,
+        })
+    }
+    }catch{
+        res.status(400).json({
+            message: "An error occurred",
+            error: error.message,
+
+    })
+    }
+}
+```
+now we need to specify routes so that the call will get routed to the desired function 
+```js
+const express = require('express')
+
+router = express.Router()
+
+const {register,login} = require('./Auth')
+
+router.route('/register').post(register)
+router.route('/login').post(login)
+module.exports = router
+```
+we add the route to the server code
+```js
+app.use("/api/auth", require("./Auth/Route"))
+```
