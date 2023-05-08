@@ -55,15 +55,7 @@ async function sendHttpRequest(method, url, data){
             'Content-Type': 'application/json'
         }
     }).then(response =>{
-        if(response.status >=200 && response.status< 300){
-        return response.json();
-        }else{
-            return response.json().then(errData =>{
-                console.log(errData);
-                throw new Error('something went wrong server side');
-            })
-           
-        }
+
 
 
     }).catch(error =>{

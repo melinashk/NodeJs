@@ -3,7 +3,8 @@ we need to do steps
 first lets see what we need to configure
 ### Express
 ```js
-const app = require('express')
+const express = require('express')
+app = express()
 ```
 ### body parser
 body parser is used to parse the http request in node js
