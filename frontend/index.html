@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Form</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Product</h1>
+        <form>
+            <div class="form-group">
+                <label for="product-name">Product Name:</label>
+                <input type="text" id="product-name" name="product-name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product-price">Price:</label>
+                <input type="number" id="product-price" name="product-price" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product-description">Description:</label>
+                <textarea id="product-description" name="product-description" required></textarea>
+            </div>
+
+            <button type="button" id="add-to-cart">Add to Cart</button>
+        </form>
+
+        <div id="product-list"></div>
+
+    </div>
+
+  
+</body>
+</html>
